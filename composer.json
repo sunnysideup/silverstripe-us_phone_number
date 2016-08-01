@@ -14,8 +14,7 @@
         }
     ],
     "require":{
-        "silverstripe/framework": "^3.4",
-        "sunnysideup/ecommerce": "*"
+        "silverstripe/framework": "^3.4"
     },
     "extra": {
         "installer-name": "us_phone_number"
