@@ -23,6 +23,7 @@ class USPhoneNumber extends Varchar
     public function Nice()
     {
         $val = $this->cleanInput($this->value);
+
         return "(".substr($val, 0, 3).") ".substr($val, 3, 3)."-".substr($val, 6);
     }
 
