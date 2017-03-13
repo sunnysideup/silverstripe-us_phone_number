@@ -15,7 +15,7 @@
 
  * [Developer Docs](docs/en/INDEX.md)
  * [User Guide](docs/en/userguide.md)
- * [API Docs](http://docs.ssmods.com/sunnysideup/us_phone_number)
+ * [API](http://ssmods.com/apis/us_phone_number/docs/en/api/)
 
 ## Requirements
 
