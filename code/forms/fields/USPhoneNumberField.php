@@ -9,7 +9,6 @@ class USPhoneNumberField extends TextField
     public static function include_js()
     {
         Requirements::javascript(FRAMEWORK_DIR.'/thirdparty/jquery/jquery.js');
-        Requirements::javascript(FRAMEWORK_DIR.'/thirdparty/jquery-entwine/dist/jquery.entwine-dist.js');
         Requirements::javascript('us_phone_number/javascript/USPhoneNumber.js');
         Requirements::themedCSS('USPhoneNumber', 'us_phone_number');
     }
