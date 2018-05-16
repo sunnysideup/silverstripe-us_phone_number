@@ -21,7 +21,7 @@ var USPhoneField = {
 
     activateFieldListeners: function(){
         jQuery('input.usphonenumber').on(
-            'add, change',
+            'add change',
             function(){
                 var el = jQuery(this);
                 USPhoneField.formatPhoneNumber(el);
@@ -29,7 +29,7 @@ var USPhoneField = {
         );
 
         jQuery('input.usphonenumber').on(
-            'propertchange, click, keyup, input, paste',
+            'propertychange click keyup input paste',
             function(){
                 var el = jQuery(this);
                 USPhoneField.formatPhoneNumber(el);
@@ -43,13 +43,20 @@ var USPhoneField = {
             val = val.replace(/\D/g,'');
             // do validation tests
             if (USPhoneField.validateNumber(el)) {
-                // (123) 335-6789
                 val = val.replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
-                el.val(val);
             }
             else if(val.length > 0) {
                 el.focus();
+                // (123) 335-6789
+                if(val.length > 5){
+                    val = val.replace(/(\d{3})(\d{3})/,'($1) $2-');
+                }
+                else if(val.length > 2){
+                    val = val.replace(/(\d{3})/,'($1) ');
+                }
+                el.val(val);
             }
+            el.val(val);
         }
     },
 
