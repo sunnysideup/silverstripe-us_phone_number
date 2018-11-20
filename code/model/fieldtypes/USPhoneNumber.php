@@ -27,6 +27,51 @@ class USPhoneNumber extends Varchar
         return "(".substr($val, 0, 3).") ".substr($val, 3, 3)."-".substr($val, 6);
     }
 
+    /**
+     *
+     * @param boolean $includeIntprefix (includes +1 at the beginning of the number)
+     *
+     * @return string
+     */
+    public function TelLink($includeIntprefix = false)
+    {
+        $str = 'tel:' . $this->initializePhoneString($includeIntprefix);
+        return $str . $this->removeNonNumbericChars($this->value);
+    }
+
+    /**
+     * @param boolean $includeIntprefix (includes +1 at the beginning of the number)
+     *
+     * @return string
+     */
+    public function CallToLink($includeIntprefix = false)
+    {
+        $str = 'callto:' . $this->initializePhoneString($includeIntprefix);
+        return $str . $this->removeNonNumbericChars($this->value);
+    }
+
+    /**
+     * @param boolean $includeIntprefix (includes +1 at the beginning of the number)
+     *
+     * @return string
+     */
+    public function initializePhoneString($includeIntprefix){
+        $str = '';
+        if($includeIntprefix){
+            $str = '+1';
+        }
+        return $str;
+    }
+
+    /**
+     * @param string $str
+     *
+     * @return string
+     */
+    public function removeNonNumbericChars($str){
+        return preg_replace('/[^0-9]/', '', $str);
+    }
+
     /*
      * @param DataObject $dataObject
      */
